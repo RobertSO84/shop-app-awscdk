@@ -1,5 +1,8 @@
 {
+  "DeploymentShopAppCdkStack": {
+    "cloudFrontDomain": "dfmq16b581iou.cloudfront.net"
+  },
   "ShopAppCdkStack": {
-    "cloudFrontDomain": "d1fnvn9wieo35b.cloudfront.net"
+    "gatewayrestApiEndpoint1433BBAC": "https://2pg5p6zuk0.execute-api.us-east-2.amazonaws.com/dev/"
   }
 }
