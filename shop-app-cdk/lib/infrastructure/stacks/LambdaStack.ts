@@ -14,22 +14,22 @@ interface LambdaStackProps extends StackProps {
 }
 
 export class LambdaStack extends Stack {
-  public readonly spacesLambdaIntegration: LambdaIntegration;
+  public readonly productsLambdaIntegration: LambdaIntegration;
 
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props);
 
-    const spacesLambda = new NodejsFunction(this, "ProductsLambda", {
+    const productsLambda = new NodejsFunction(this, "ProductsLambda", {
       runtime: Runtime.NODEJS_18_X,
       handler: "handler",
-      entry: (join(__dirname, "..", "..", "services", "spaces", "handler.ts")),
+      entry: (join(__dirname, "..", "..", "services", "products", "handler.ts")),
       environment: {
         TABLE_NAME: props.productsTable.tableName
 
       }
     });
 
-    spacesLambda.addToRolePolicy(new PolicyStatement({
+    productsLambda.addToRolePolicy(new PolicyStatement({
       effect: Effect.ALLOW,
       resources: [props.productsTable.tableArn],
       actions: [
@@ -41,6 +41,6 @@ export class LambdaStack extends Stack {
       ]
     }))
 
-    this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
+    this.productsLambdaIntegration = new LambdaIntegration(productsLambda);
   }
 }

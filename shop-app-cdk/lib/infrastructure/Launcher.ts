@@ -5,11 +5,11 @@ import { ApiStack } from "./stacks/ApiStack";
 // import { UiDeploymentStack } from "./stacks/UiDeploymentStack";
 
 const app = new App();
-const dataStack = new DataStack(app, "DataStack");
-const lambdaStack = new LambdaStack(app, "LambdaStack", {
+const dataStack = new DataStack(app, "ShopDataStack");
+const lambdaStack = new LambdaStack(app, "ShopLambdaStack", {
   productsTable: dataStack.productsTable,
 });
-new ApiStack(app, "ApiStack", {
-  spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
+new ApiStack(app, "ShopApiGatewayStack", {
+  productsLambdaIntegration: lambdaStack.productsLambdaIntegration,
 });
-// new UiDeploymentStack(app, "UiDeploymentStack");
+// new UiDeploymentStack(app, "ShopUiDeploymentStack");

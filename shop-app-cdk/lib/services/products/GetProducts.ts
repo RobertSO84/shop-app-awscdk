@@ -6,11 +6,11 @@ import {
   import { unmarshall } from "@aws-sdk/util-dynamodb";
   import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
   
-  export async function getSpaces(
+  export async function getProducts(
     event: APIGatewayProxyEvent,
     ddbClient: DynamoDBClient
   ): Promise<APIGatewayProxyResult> {
-    if (event.queryStringParameters) {
+    if (event.queryStringParameters ) {
       if ("id" in event.queryStringParameters) {
         const productId = event.queryStringParameters["id"];
         const getItemResponse = await ddbClient.send(
@@ -30,7 +30,7 @@ import {
         } else {
           return {
             statusCode: 404,
-            body: JSON.stringify(`Space with id ${productId} not found!`),
+            body: JSON.stringify(`Product with id ${productId} not found!`),
           };
         }
       }else {
