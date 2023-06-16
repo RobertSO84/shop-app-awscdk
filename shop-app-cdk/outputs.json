@@ -1,5 +1,12 @@
 {
-  "ShopAppCdkStack": {
-    "cloudFrontDomain": "d1fnvn9wieo35b.cloudfront.net"
+  "ShopDataStack": {
+    "ExportsOutputRefProductsTable241ADBFF4DFBD40D": "ProductsStack-06f6f87b6cab",
+    "ExportsOutputFnGetAttProductsTable241ADBFFArn55D06E2D": "arn:aws:dynamodb:us-east-2:526905956116:table/ProductsStack-06f6f87b6cab"
+  },
+  "ShopLambdaStack": {
+    "ExportsOutputFnGetAttProductsLambda1FF938FDArn41E090CD": "arn:aws:lambda:us-east-2:526905956116:function:ShopLambdaStack-ProductsLambda1FF938FD-TsArTf1n6ARp"
+  },
+  "ShopApiGatewayStack": {
+    "ProductsApiEndpointD9B1D2AF": "https://5b9ylu4q12.execute-api.us-east-2.amazonaws.com/prod/"
   }
 }
